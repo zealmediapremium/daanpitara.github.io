@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import Fundraiser from "./components/Fundraiser";
 import Faqs from "./components/Faqs";
 import Blogs from "./components/Blogs";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/faqs" element={<Faqs />} />
           {/* <Route path="/contact" element={<Navbar />} /> */}
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<p>Not found</p>} />
         </Route>
       </Routes>

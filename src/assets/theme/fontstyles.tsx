@@ -11,6 +11,7 @@
 // }
 
 
+        // --framer-font-size: 46px      --- Heading tab size
 
 // elements
     // --framer-font-size: 18px;

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import HighlightButton from "../Buttons/highlightButton";
+import HighlightButton from "@/assets/Buttons/highlightButton";
 
 import Logo from "@/assets/daanpitara.jpg";
 
@@ -7,14 +7,14 @@ export default function Navbar() {
   return (
     <nav className="bg-white py-3 flex items-center justify-between">
       {/* Left: Logo */}
-      <div className="text-xl font-bold ">
+      <div className="text-lg font-bold ">
         <Link to="/">
         <img
           src={Logo}
           alt="DaanPitara Logo"
           className="h-8 inline-block mr-2"
         />
-        DaanPitara
+        DAANPITARA
         </Link>
       </div>
 
