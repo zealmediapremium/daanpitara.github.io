@@ -49,12 +49,12 @@ const randomStars = () => Math.floor(Math.random() * 3) + 3;
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-10">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading heading="What our satisfied and happy clients have to say" />
 
 
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 py-10">
           {testimonials.map((t, i) => {
             const stars = randomStars();
             return (
