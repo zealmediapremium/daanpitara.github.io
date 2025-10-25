@@ -1,5 +1,5 @@
 // import SectionHeading from "@/assets/Headings/SectionHeading";
-import { JSX } from "react";
+import type { JSX } from "react";
 
 // src/data/featuresData.tsx
 
