@@ -8,7 +8,7 @@ import FeaturesSection from "./WhyUs";
 import { featuresData } from "./WhyUs";
 import { facilitiesData } from "./facilitiesData";
 import { servicesData } from "./servicesData";
-import SectionHeading from "@/assets/Headings/SectionHeading";
+import SectionHeading from "@/assets/Headings/sectionHeading";
 
 const tabs = [
   { id: "features", label: "Healthcare Features", data: featuresData },
