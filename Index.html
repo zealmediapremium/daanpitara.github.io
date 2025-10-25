@@ -1,100 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DaanPitara × Zheal | We'll Be Back</title>
-  <meta name="description" content="DaanPitara & Zheal Media Matters — temporary maintenance" />
-  <style>
-    :root{
-      --bg:#0b0f1a; --card:#0f1526; --muted:#9aa3b2; --text:#e7ecf3;
-      --accent:#0b5ed7; --accent-2:#1dd1a1; --gold:#ffd36c;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;}
-    body{
-      background:
-        radial-gradient(800px 400px at 20% 10%, rgba(11,94,215,.14), transparent 40%),
-        radial-gradient(600px 300px at 85% 90%, rgba(29,209,161,.12), transparent 35%),
-        linear-gradient(180deg,#061022 0%, #07101b 100%);
-      color:var(--text);
-      display:flex; align-items:center; justify-content:center; padding:28px;
-    }
-    .wrap{width:min(980px,98%);} 
-    .card{
-      border-radius:18px; padding:28px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.06); box-shadow: 0 20px 50px rgba(2,8,23,.5); overflow:hidden;
-    }
-    header{display:flex; align-items:center; gap:14px; margin-bottom:10px}
-    .logo{width:48px;height:48px;border-radius:10px; display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#5aa6ff);} 
-    .logo svg{width:26px;height:26px; fill:#fff}
-    .brand h3{margin:0;font-size:1rem}
-    .brand p{margin:0;color:var(--muted);font-size:.88rem}
-    .status{margin-left:auto;background:rgba(255,211,108,.08);color:var(--gold);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,211,108,.14);font-weight:700}
-    .hero{display:grid;grid-template-columns:1.2fr .9fr;gap:20px;align-items:center}
-    @media (max-width:840px){ .hero{grid-template-columns:1fr} .right{order:2} }
-    h1{font-size:clamp(1.6rem,2.8vw,2.3rem); margin:6px 0 10px 0}
-    p.lead{color:#c9d2e1; line-height:1.6; margin:0 0 12px 0}
-    .ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;text-decoration:none;color:white;font-weight:700;border:none;cursor:pointer}
-    .btn.primary{background:linear-gradient(180deg,var(--accent), #3b86ff); box-shadow:0 12px 32px rgba(11,94,215,.32)}
-    .btn.ghost{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06); color:var(--text); font-weight:700}
-    .right{padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px}
-    .illustration svg{width:86%; max-width:360px; height:auto; display:block}
-    footer{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:.92rem; align-items:center}
-    .pill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.04)}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <header>
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm3 4v8h6V8H9z"/></svg>
-        </div>
-        <div class="brand">
-          <h3>DaanPitara × Zheal Media Matters</h3>
-          <p>Re-architecting the experience</p>
-        </div>
-        <div class="status">Temporarily Offline</div>
-      </header>
-
-      <div class="hero">
-        <section>
-          <h1>Heads-up — we’re doing a rapid rebuild 🚧</h1>
-          <p class="lead">We’re upgrading the site to deliver a faster, cleaner experience for NGOs, donors and partners. Thanks for your patience — we’ll be back shortly.</p>
-
-          <div class="ctas">
-            <a class="btn primary" href="tel:+919876577721">📞 +91 98765 77721</a>
-            <a class="btn ghost" href="mailto:bhallaasheesh@gmail.com">✉️ Email Support</a>
-            <a class="btn ghost" href="https://daanpitara.org/register" target="_blank" rel="noopener">🔗 NGO Registration</a>
-          </div>
-        </section>
-
-        <aside class="right" aria-hidden="true">
-          <div class="illustration" role="img" aria-label="Site maintenance illustration">
-            <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-              <rect width="640" height="360" rx="12" fill="rgba(255,255,255,0.02)"/>
-              <g transform="translate(40,40)" stroke="rgba(255,255,255,0.14)" stroke-width="2" fill="none">
-                <path d="M40 240h480"/>
-                <path d="M80 240V88l120-34 100 38 120-46 60 22v182" stroke="url(#g)"/>
-              </g>
-              <defs>
-                <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#5aa6ff"/><stop offset="1" stop-color="#1dd1a1"/></linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <div style="margin-top:12px;color:var(--muted)">Deploy pipeline running…</div>
-        </aside>
-      </div>
-
-      <footer>
-        <div class="pill">🇮🇳 Built for NGOs & Social Impact</div>
-        <div class="pill">🔧 Improvements rolling out soon</div>
-        <a class="pill" href="https://zhealmediamatters.in" target="_blank" rel="noopener">zhealmediamatters.in</a>
-        <a class="pill" href="https://www.daanpitara.org" target="_blank" rel="noopener">daanpitara.org</a>
-      </footer>
-    </div>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vite-project</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

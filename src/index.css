@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme   {
+  --color-brand-blue: rgb(0, 132, 197);
+  --color-star-gold: rgb(249, 188, 23);
+  --color-bg-white: #FFFFFF;
+  --color-bg-card: #f5faff;  /* light mode card background */
+  --color-bg-icon: #edf4ff;  /* light mode icon background */
+  --color-txt-black:#000000;
+
+  --spacing-pd-lg:6rem;
+  --spacing-pd-md:4rem;
+  --spacing-pd-sm:2rem;
+
+  --text-xxl:50px;  /* for tab 46px */
+  --text-xl:28px;  /* for tab 46px */
+  --text-lg:1.125rem;
+  --text-md:1rem;
+  --text-sm:0.875rem; 
+
+  --font-bold:600;
+
+  --font-open-type-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+
+  --font-family-italic: "Inter Display", "Inter Display Placeholder", sans-serif;
+  --font-satoshi: "Satoshi", "Satoshi Placeholder", sans-serif;
+
+}
+body {
+  font-family: var(--font-satoshi);
+}
+
+.font-open-type {
+  font-feature-settings: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+    --framer-letter-spacing: -0.03em;
+  letter-spacing: var(--framer-letter-spacing);
+  width: 600px;
+}
+
+:root {
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
