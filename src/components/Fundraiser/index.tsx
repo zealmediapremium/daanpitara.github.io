@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import InputField from "@/assets/theme/FormInputField";
 import {
   UserIcon,
@@ -34,7 +34,7 @@ export default function CsrConnectionForm() {
   const beneficiariesRef = useRef<HTMLInputElement>(null);
 
   // Step 4 refs
-  const [files, setFiles] = useState<FileList | null>(null);
+  // const [files, setFiles] = useState<FileList | null>(null);
   const websiteRef = useRef<HTMLInputElement>(null);
   const achievementsRef = useRef<HTMLInputElement>(null);
 
@@ -63,7 +63,7 @@ export default function CsrConnectionForm() {
       focusArea,
       summary: summaryRef.current?.value,
       beneficiaries: beneficiariesRef.current?.value,
-      files,
+      // files,
       website: websiteRef.current?.value,
       achievements: achievementsRef.current?.value,
       authorizedName: authorizedRef.current?.value,
