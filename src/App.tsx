@@ -12,6 +12,7 @@ import Fundraiser from "./components/Fundraiser";
 import Faqs from "./components/Faqs";
 import Blogs from "./components/Blogs";
 import SignUp from "./components/SignUp";
+import Testimonials from "./components/Footer/Testimonials";
 
 function App() {
   return (
@@ -32,14 +33,19 @@ function App() {
 }
 
 
-function BasicLayout(){
-      return <div
-      className="px-pd-lg"
-      >
-        <Navbar />
-        <Outlet />
+function BasicLayout() {
+  return (
+    <div className="px-4 sm:px-6 md:px-8 lg:px-pd-lg">
+      <Navbar />
+      <Outlet />
+      <Testimonials />
+      {/* Remove padding for the footer */}
+      <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-pd-lg">
         <Footer />
+      </div>
     </div>
+  );
 }
+
 
 export default App;

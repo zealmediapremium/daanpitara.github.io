@@ -20,7 +20,7 @@ export default function FeaturesTabs() {
   const [activeTab, setActiveTab] = useState("features");
 
   return (
-    <div className="w-full bg-gray-50 py-16">
+    <div className="w-full py-10">
         <SectionHeading heading="Why People Trust Us" />
       {/* Tabs */}
       <div className="flex justify-center gap-6 relative mb-10">

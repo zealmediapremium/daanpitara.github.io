@@ -5,7 +5,7 @@ export default function Landing() {
   return (
     <div className="flex gap-10 items-stretch">
       {/* Left Section */}
-      <div className="flex flex-col flex-1 justify-around bg-gray-100 p-4">
+      <div className="flex flex-col flex-1 justify-around p-4">
         <h1>Welcome to the Home Page</h1>
         <h1>Welcome to the Home Page</h1>
         <h1>Welcome to the Home Page</h1>
@@ -16,7 +16,7 @@ export default function Landing() {
       </div>
 
       {/* Right Section */}
-      <div className="flex flex-1 items-center justify-center bg-gray-50 p-4">
+      <div className="flex flex-1 items-center justify-center p-4">
         <ImageCard
           src={Globe}
           altImage="/images/fallback.png"

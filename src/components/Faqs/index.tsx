@@ -68,42 +68,40 @@ const paymentFAQ = [
 
 
 
-  return (
-    <div
-    className="flex flex-col content-center items-center w-full"
-    >
+return (
+  <div className="flex flex-col items-center w-full px-4 sm:px-6 md:px-8 lg:px-0">
     <SectionHeading heading="Frequently asked questions for quick answers" />
-    <div 
-    style={{width:"700px"}}
+
+    <div
+      className="
+        w-full
+        max-w-[700px]
+      "
     >
       <div className="py-8">
+        <SubsectionHeading heading="Basic FAQ's Block" />
 
-      <SubsectionHeading heading="Basic FAQ's Block" />
-
-    {basic_faqs.length > 1 && 
-      basic_faqs.map((faq, index) => (
-        <FaqSingleQuestion
-          key={index}
-          question={faq.question}
-          answer={faq.answer}
-        />
-      ))
-    }
+        {basic_faqs.length > 1 &&
+          basic_faqs.map((faq, index) => (
+            <FaqSingleQuestion
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+            />
+          ))}
       </div>
-    <SubsectionHeading
-    heading="Payment & Refund" /> 
-        {paymentFAQ.length > 1 && 
-      paymentFAQ.map((faq, index) => (
-        <FaqSingleQuestion
-          key={index}
-          question={faq.question}
-          answer={faq.answer}
-        />
-      ))
-    }
-    </div>
-    
 
+      <SubsectionHeading heading="Payment & Refund" />
+      {paymentFAQ.length > 1 &&
+        paymentFAQ.map((faq, index) => (
+          <FaqSingleQuestion
+            key={index}
+            question={faq.question}
+            answer={faq.answer}
+          />
+        ))}
     </div>
-  );
+  </div>
+);
+
 }

@@ -80,7 +80,7 @@ export default function FeaturesSection({
   subtitle = "Explore the tools and services that make your healthcare experience simple, personalized, and accessible anytime.",
 }: FeaturesSectionProps) {
   return (
-    <section className="px-8 py-16 bg-gray-50">
+    <section className="px-8 py-8  bg-gray-50">
       {/* Title and subtitle */}
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-3">{title}</h2>
