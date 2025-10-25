@@ -1,4 +1,4 @@
-import SectionHeading from "@/assets/Headings/SectionHeading";
+// import SectionHeading from "@/assets/Headings/SectionHeading";
 import { JSX } from "react";
 
 // src/data/featuresData.tsx

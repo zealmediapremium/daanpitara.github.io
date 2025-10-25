@@ -1,4 +1,4 @@
-import SectionHeading from "@/assets/Headings/SectionHeading";
+import SectionHeading from "@/assets/Headings/sectionHeading";
 import FaqSingleQuestion from "@/assets/theme/FaqSingleQuestion";
 import SubsectionHeading from "@/assets/Headings/subsectionHeading";
 
