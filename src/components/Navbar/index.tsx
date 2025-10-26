@@ -55,7 +55,7 @@ export default function Navbar() {
             exit="exit"
             variants={menuVariants}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="absolute top-full left-0 w-full bg-white shadow-lg flex flex-col p-5 md:hidden"
+            className="absolute top-full left-0 w-full bg-white flex flex-col p-5 md:hidden gap-4"
           >
             <Link
               to="/"
@@ -85,7 +85,11 @@ export default function Navbar() {
             >
               Blogs
             </Link>
+            <div 
+            onClick={() => setIsOpen(false)}
+            >
             <HighlightButton to="/signup" text="Sign Up" />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
