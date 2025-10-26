@@ -11,11 +11,13 @@ import {
   ClipboardTextIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  CalendarIcon
 } from "@phosphor-icons/react";
 import SubmitButton from "@/assets/Buttons/SubmitButton";
 
 export default function CsrConnectionForm() {
   const [step, setStep] = useState(1);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Step 1 refs
   const nameRef = useRef<HTMLInputElement>(null);
@@ -24,11 +26,11 @@ export default function CsrConnectionForm() {
   const phoneRef = useRef<HTMLInputElement>(null);
   const locationRef = useRef<HTMLInputElement>(null);
 
-  // Step 2 refs
+  // Step 2 state
   const [userType, setUserType] = useState("");
   const [purpose, setPurpose] = useState("");
 
-  // Step 3 refs
+  // Step 3 state/refs
   const [focusArea, setFocusArea] = useState<string[]>([]);
   const summaryRef = useRef<HTMLTextAreaElement>(null);
   const beneficiariesRef = useRef<HTMLInputElement>(null);
@@ -38,11 +40,17 @@ export default function CsrConnectionForm() {
   const achievementsRef = useRef<HTMLInputElement>(null);
 
   // Step 5 refs
+  const [agree, setAgree] = useState(false);
   const authorizedRef = useRef<HTMLInputElement>(null);
   const dateRef = useRef<HTMLInputElement>(null);
 
-  const handleNext = () => setStep((prev) => Math.min(prev + 1, 5));
-  const handleBack = () => setStep((prev) => Math.max(prev - 1, 1));
+  const stepTitles = [
+    "Basic Details",
+    "Type & Purpose",
+    "Focus Area & Project Info",
+    "Documents & Credentials",
+    "Declaration & Submission",
+  ];
 
   const toggleFocus = (area: string) => {
     setFocusArea((prev) =>
@@ -50,7 +58,52 @@ export default function CsrConnectionForm() {
     );
   };
 
+  const validateStep = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (step === 1) {
+      if (!nameRef.current?.value.trim()) newErrors.name = "Name / Organization is required";
+      if (!contactRef.current?.value.trim()) newErrors.contact = "Contact person is required";
+      if (!emailRef.current?.value.trim()) newErrors.email = "Email is required";
+      if (!phoneRef.current?.value.trim()) newErrors.phone = "Phone is required";
+      if (!locationRef.current?.value.trim()) newErrors.location = "Location is required";
+    }
+
+    if (step === 2) {
+      if (!userType) newErrors.userType = "Select user type";
+      if (!purpose) newErrors.purpose = "Select purpose";
+    }
+
+    if (step === 3) {
+      if (focusArea.length === 0) newErrors.focusArea = "Select at least one focus area";
+      if (!summaryRef.current?.value.trim()) newErrors.summary = "Summary is required";
+      if (!beneficiariesRef.current?.value.trim()) newErrors.beneficiaries = "Beneficiaries info is required";
+    }
+
+    if (step === 4) {
+      if (!websiteRef.current?.value.trim()) newErrors.website = "Website / Social link is required";
+      if (!achievementsRef.current?.value.trim()) newErrors.achievements = "Achievements info is required";
+    }
+
+    if (step === 5) {
+      if (!agree) newErrors.agree = "You must confirm";
+      if (!authorizedRef.current?.value.trim()) newErrors.authorized = "Authorized name is required";
+      if (!dateRef.current?.value.trim()) newErrors.date = "Date is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleNext = () => {
+    if (validateStep()) setStep((prev) => Math.min(prev + 1, 5));
+  };
+
+  const handleBack = () => setStep((prev) => Math.max(prev - 1, 1));
+
   const handleSubmit = () => {
+    if (!validateStep()) return;
+
     const formData = {
       name: nameRef.current?.value,
       contactPerson: contactRef.current?.value,
@@ -68,17 +121,9 @@ export default function CsrConnectionForm() {
       date: dateRef.current?.value,
     };
 
-    console.log("Form Submitted:", formData);
-    alert("✅ Application submitted successfully!");
+    console.log(formData);
+    alert("Form submitted successfully!");
   };
-
-  const stepTitles = [
-    "Basic Details",
-    "Type & Purpose",
-    "Focus Area & Project Info",
-    "Documents & Credentials",
-    "Declaration & Submission",
-  ];
 
   return (
     <div className="max-w-2xl mx-auto rounded-lg bg-white relative">
@@ -98,196 +143,211 @@ export default function CsrConnectionForm() {
         </div>
       </div>
 
-      {/* Form Content Container with fixed height */}
-      <div className="px-4 max-h-[600px] min-h-[500px] overflow-y-auto">
-        {step === 1 && (
-          <div className="space-y-5">
-            <InputField
-              ref={nameRef}
-              text="Full Name / Organization Name:"
-              placeholder="Enter your name or organization"
-              icon={<BuildingsIcon size={20} />}
-            />
-            <InputField
-              ref={contactRef}
-              text="Contact Person:"
-              placeholder="Full name of the authorized contact"
-              icon={<UserIcon size={20} />}
-            />
-            <InputField
-              ref={emailRef}
-              text="Email Address:"
-              placeholder="example@email.com"
-              icon={<EnvelopeSimpleIcon size={20} />}
-            />
-            <InputField
-              ref={phoneRef}
-              text="Phone / WhatsApp:"
-              placeholder="+91-XXXXXXXXXX"
-              icon={<PhoneIcon size={20} />}
-            />
-            <InputField
-              ref={locationRef}
-              text="Country / City:"
-              placeholder="Enter your location"
-              icon={<MapPinIcon size={20} />}
-            />
-          </div>
-        )}
+      <div className="px-4 max-h-[600px] min-h-[500px] overflow-y-auto space-y-5">
+        {/* Step 1 */}
+        <div className={step === 1 ? "block" : "hidden"}>
+          <InputField
+            ref={nameRef}
+            text="Full Name / Organization Name:"
+            placeholder="Enter your name or organization"
+            icon={<BuildingsIcon size={20} />}
+            error={errors.name}
+          />
+          <InputField
+            ref={contactRef}
+            text="Contact Person:"
+            placeholder="Full name of the authorized contact"
+            icon={<UserIcon size={20} />}
+            error={errors.contact}
+          />
+          <InputField
+            ref={emailRef}
+            text="Email Address:"
+            placeholder="example@email.com"
+            icon={<EnvelopeSimpleIcon size={20} />}
+            error={errors.email}
+          />
+          <InputField
+            ref={phoneRef}
+            text="Phone / WhatsApp:"
+            placeholder="+91-XXXXXXXXXX"
+            icon={<PhoneIcon size={20} />}
+            error={errors.phone}
+          />
+          <InputField
+            ref={locationRef}
+            text="Country / City:"
+            placeholder="Enter your location"
+            icon={<MapPinIcon size={20} />}
+            error={errors.location}
+          />
+        </div>
 
-        {step === 2 && (
-          <div className="space-y-6">
-            <div>
-              <p className="font-medium mb-2">You are:</p>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                {["NGO / Non-Profit", "Corporate (CSR)", "Individual Donor"].map(
-                  (type) => (
-                    <label key={type} className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="userType"
-                        value={type}
-                        checked={userType === type}
-                        onChange={() => setUserType(type)}
-                      />
-                      {type}
-                    </label>
-                  )
-                )}
-              </div>
-            </div>
-            <div>
-              <p className="font-medium mb-2">Purpose of Submission:</p>
-              {[
-                "Seeking CSR Support / Partnership",
-                "Offering CSR Collaboration",
-                "Running a Fundraising Campaign",
-                "Volunteering or Awareness Partnership",
-              ].map((p) => (
-                <label key={p} className="flex items-center gap-2">
+        {/* Step 2 */}
+        <div className={step === 2 ? "block" : "hidden"}>
+          <div>
+            <p className="font-medium mb-2">You are:</p>
+            <div className="grid grid-cols-2 gap-2 text-sm">
+              {["NGO / Non-Profit", "Corporate (CSR)", "Individual Donor"].map((type) => (
+                <label key={type} className="flex items-center gap-2">
                   <input
                     type="radio"
-                    name="purpose"
-                    value={p}
-                    checked={purpose === p}
-                    onChange={() => setPurpose(p)}
+                    name="userType"
+                    value={type}
+                    checked={userType === type}
+                    onChange={() => setUserType(type)}
                   />
-                  {p}
+                  {type}
                 </label>
               ))}
             </div>
+            {errors.userType && <p className="text-red-500 text-sm">{errors.userType}</p>}
           </div>
-        )}
-
-        {step === 3 && (
-          <div className="space-y-4">
-            <p className="font-medium mb-2">Primary Focus Area:</p>
-            <div className="grid grid-cols-2 gap-2 text-sm">
-              {[
-                "Education",
-                "Health & Hygiene",
-                "Environment & Sustainability",
-                "Women Empowerment",
-                "Rural Development",
-                "Skill Development",
-                "Animal Welfare",
-                "Other",
-              ].map((area) => (
-                <label key={area} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={focusArea.includes(area)}
-                    onChange={() => toggleFocus(area)}
-                  />
-                  {area}
-                </label>
-              ))}
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">
-                Project / Initiative Summary:
+          <div>
+            <p className="font-medium mb-2">Purpose of Submission:</p>
+            {[
+              "Seeking CSR Support / Partnership",
+              "Offering CSR Collaboration",
+              "Running a Fundraising Campaign",
+              "Volunteering or Awareness Partnership",
+            ].map((p) => (
+              <label key={p} className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="purpose"
+                  value={p}
+                  checked={purpose === p}
+                  onChange={() => setPurpose(p)}
+                />
+                {p}
               </label>
-              <textarea
-                ref={summaryRef}
-                rows={4}
-                placeholder="Write a brief description..."
-                className="w-full border-b focus:outline-none focus:border-black p-2"
-              />
-            </div>
-            <InputField
-              ref={beneficiariesRef}
-              text="Target Beneficiaries / Location:"
-              placeholder="Mention your community or region"
-              icon={<ListIcon size={20} />}
-            />
+            ))}
+            {errors.purpose && <p className="text-red-500 text-sm">{errors.purpose}</p>}
           </div>
-        )}
-
-        {step === 4 && (
-          <div className="space-y-5">
-            <InputField
-              ref={websiteRef}
-              text="Website / Social Links:"
-              placeholder="Paste your website or social handles"
-              icon={<GlobeIcon size={20} />}
-            />
-            <InputField
-              ref={achievementsRef}
-              text="Previous CSR Partners / Achievements:"
-              placeholder="Mention past collaborations"
-              icon={<ClipboardTextIcon size={20} />}
-            />
-          </div>
-        )}
-
-        {step === 5 && (
-          <div className="space-y-5">
-            <div className="flex items-start gap-2">
-              <input type="checkbox" required />
-              <p className="text-sm">
-                I confirm that the information provided is accurate and may be
-                shared for CSR / fundraising matchmaking purposes.
-              </p>
-            </div>
-            <InputField
-              ref={authorizedRef}
-              text="Authorized Name / Signature:"
-              placeholder="Enter full name"
-              icon={<UserIcon size={20} />}
-            />
-            <InputField
-              ref={dateRef}
-              text="Date:"
-              placeholder="DD/MM/YYYY"
-              icon={<ListIcon size={20} />}
-            />
-          </div>
-        )}
-
-        {/* Sticky Navigation Buttons */}
-        <div className="sticky bottom-0 bg-white border-t border-gray-200 py-3 flex justify-between mt-4">
-          {step > 1 ? (
-            <button
-              onClick={handleBack}
-              className="flex items-center gap-2 bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
-            >
-              <ArrowLeftIcon size={20} /> Back
-            </button>
-          ) : (
-            <div></div>
-          )}
-
-          {step < 5 ? (
-            <button
-              onClick={handleNext}
-              className="flex items-center gap-2 bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Next <ArrowRightIcon size={20} />
-            </button>
-          ) : (
-            <SubmitButton submit={handleSubmit} text="Submit Your Application" />
-          )}
         </div>
+
+        {/* Step 3 */}
+        <div className={step === 3 ? "block" : "hidden"}>
+          <p className="font-medium mb-2">Primary Focus Area:</p>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            {[
+              "Education",
+              "Health & Hygiene",
+              "Environment & Sustainability",
+              "Women Empowerment",
+              "Rural Development",
+              "Skill Development",
+              "Animal Welfare",
+              "Other",
+            ].map((area) => (
+              <label key={area} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={focusArea.includes(area)}
+                  onChange={() => toggleFocus(area)}
+                />
+                {area}
+              </label>
+            ))}
+          </div>
+          {errors.focusArea && <p className="text-red-500 text-sm">{errors.focusArea}</p>}
+
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Project / Initiative Summary:
+            </label>
+            <textarea
+              ref={summaryRef}
+              rows={4}
+              placeholder="Write a brief description..."
+              className="w-full border-b focus:outline-none focus:border-black p-2"
+            />
+            {errors.summary && <p className="text-red-500 text-sm">{errors.summary}</p>}
+          </div>
+
+          <InputField
+            ref={beneficiariesRef}
+            text="Target Beneficiaries / Location:"
+            placeholder="Mention your community or region"
+            icon={<ListIcon size={20} />}
+            error={errors.beneficiaries}
+          />
+        </div>
+
+        {/* Step 4 */}
+        <div className={step === 4 ? "block" : "hidden"}>
+          <InputField
+            ref={websiteRef}
+            text="Website / Social Links:"
+            placeholder="Paste your website or social handles"
+            icon={<GlobeIcon size={20} />}
+            error={errors.website}
+          />
+          <InputField
+            ref={achievementsRef}
+            text="Previous CSR Partners / Achievements:"
+            placeholder="Mention past collaborations or awards"
+            icon={<ClipboardTextIcon size={20} />}
+            error={errors.achievements}
+          />
+        </div>
+
+        {/* Step 5 */}
+        <div className={step === 5 ? "block" : "hidden"}>
+          <div className="flex items-start gap-2">
+            <input
+              type="checkbox"
+              checked={agree}
+              onChange={(e) => setAgree(e.target.checked)}
+            />
+            <p className="text-sm">
+              I confirm that the information provided is accurate and may be
+              shared for CSR / fundraising matchmaking purposes.
+            </p>
+          </div>
+          {errors.agree && <p className="text-red-500 text-sm">{errors.agree}</p>}
+
+          <InputField
+            ref={authorizedRef}
+            text="Authorized Signatory Name:"
+            placeholder="Enter authorized person name"
+            icon={<UserIcon size={20} />}
+            error={errors.authorized}
+          />
+          <InputField
+            ref={dateRef}
+            text="Date:"
+            placeholder="DD/MM/YYYY"
+            icon={<CalendarIcon size={20} />}
+            type="date"
+            error={errors.date}
+          />
+        </div>
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="flex justify-between p-4 border-t mt-4">
+        {step > 1 ? (
+          <button
+            type="button"
+            onClick={handleBack}
+            className="flex items-center gap-1 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+          >
+            <ArrowLeftIcon size={20} /> Back
+          </button>
+        ) : <div />}
+
+        {step < 5 ? (
+          <button
+            type="button"
+            onClick={handleNext}
+            className="flex items-center gap-1 px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700"
+          >
+            Next <ArrowRightIcon size={20} />
+          </button>
+        ) : (
+          <SubmitButton submit={handleSubmit} text="Submit" />
+        )}
       </div>
     </div>
   );
