@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <h2 className="text-2xl font-bold text-white mb-2">DAANPitara</h2>
             <p className="text-sm">
-              © DAANPitara 2025 • Design By <span className="text-indigo-400 font-semibold">RTM</span>
+              © DAANPitara 2025
             </p>
           </div>
 
