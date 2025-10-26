@@ -34,7 +34,6 @@ export default function CsrConnectionForm() {
   const beneficiariesRef = useRef<HTMLInputElement>(null);
 
   // Step 4 refs
-  // const [files, setFiles] = useState<FileList | null>(null);
   const websiteRef = useRef<HTMLInputElement>(null);
   const achievementsRef = useRef<HTMLInputElement>(null);
 
@@ -63,7 +62,6 @@ export default function CsrConnectionForm() {
       focusArea,
       summary: summaryRef.current?.value,
       beneficiaries: beneficiariesRef.current?.value,
-      // files,
       website: websiteRef.current?.value,
       achievements: achievementsRef.current?.value,
       authorizedName: authorizedRef.current?.value,
@@ -83,41 +81,16 @@ export default function CsrConnectionForm() {
   ];
 
   return (
-    <div className="max-w-2xl mx-auto rounded-lg bg-white flex flex-col h-[650px]">
+    <div className="max-w-2xl mx-auto rounded-lg bg-white relative">
       {/* Header */}
-      <div className="relative mb-4">
-        <div className="flex items-center justify-center relative">
-          {/* Left Arrow */}
-          {step > 1 && (
-            <button
-              onClick={handleBack}
-              className="absolute left-0 text-gray-600 hover:text-black transition"
-            >
-              <ArrowLeftIcon size={24} weight="bold" />
-            </button>
-          )}
-          {/* Title */}
-          <h2 className="text-lg font-semibold text-gray-800 text-center">
-            CSR | NGO | Fundraiser Connection Form
-          </h2>
-          {/* Right Arrow */}
-          {step < 5 && (
-            <button
-              onClick={handleNext}
-              className="absolute right-0 text-gray-600 hover:text-black transition"
-            >
-              <ArrowRightIcon size={24} weight="bold" />
-            </button>
-          )}
-        </div>
-
-        {/* Step Title */}
-        <h3 className="text-base text-gray-600 font-medium mb-2 text-center">
+      <div className="relative mb-4 text-center p-4">
+        <h2 className="text-lg font-semibold text-gray-800">
+          CSR | NGO | Fundraiser Connection Form
+        </h2>
+        <h3 className="text-base text-gray-600 font-medium mt-2">
           {step}. {stepTitles[step - 1]}
         </h3>
-
-        {/* Progress Bar */}
-        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className="h-2 bg-gray-200 rounded-full overflow-hidden mt-2">
           <div
             className="h-full bg-brand-blue transition-all duration-300"
             style={{ width: `${(step / 5) * 100}%` }}
@@ -125,8 +98,8 @@ export default function CsrConnectionForm() {
         </div>
       </div>
 
-      {/* Step Content */}
-      <div className="flex-1 overflow-y-auto pr-2">
+      {/* Form Content Container with fixed height */}
+      <div className="px-4 max-h-[600px] min-h-[500px] overflow-y-auto">
         {step === 1 && (
           <div className="space-y-5">
             <InputField
@@ -264,7 +237,6 @@ export default function CsrConnectionForm() {
               placeholder="Mention past collaborations"
               icon={<ClipboardTextIcon size={20} />}
             />
-
           </div>
         )}
 
@@ -289,15 +261,33 @@ export default function CsrConnectionForm() {
               placeholder="DD/MM/YYYY"
               icon={<ListIcon size={20} />}
             />
-                        {/* Submit Button inside Step 4 */}
-            <div className="mt-4">
-              <SubmitButton
-                submit={handleSubmit}
-                text="Submit Your Application"
-              />
-            </div>
           </div>
         )}
+
+        {/* Sticky Navigation Buttons */}
+        <div className="sticky bottom-0 bg-white border-t border-gray-200 py-3 flex justify-between mt-4">
+          {step > 1 ? (
+            <button
+              onClick={handleBack}
+              className="flex items-center gap-2 bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
+            >
+              <ArrowLeftIcon size={20} /> Back
+            </button>
+          ) : (
+            <div></div>
+          )}
+
+          {step < 5 ? (
+            <button
+              onClick={handleNext}
+              className="flex items-center gap-2 bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Next <ArrowRightIcon size={20} />
+            </button>
+          ) : (
+            <SubmitButton submit={handleSubmit} text="Submit Your Application" />
+          )}
+        </div>
       </div>
     </div>
   );
