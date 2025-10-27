@@ -2,14 +2,14 @@
 
 type Environment = "dev" | "staging" | "prod";
 
-export const domain_route = (): string => {
+export const url = (): string => {
   const links: Record<Environment, string> = {
-    dev: "http://localhost:3000",
-    staging: "https://staging.example.com",
-    prod: "https://prod.example.com",
+    dev: "http://localhost:3000/api",
+    staging: "https://staging.example.com/api",
+    prod: "https://daanpitara.onrender.com/api",
   };
 
-  const env = "dev";
+  const env = "prod";
 
   return links[env];
 };

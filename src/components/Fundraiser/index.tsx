@@ -14,6 +14,7 @@ import {
   CalendarIcon
 } from "@phosphor-icons/react";
 import SubmitButton from "@/assets/Buttons/SubmitButton";
+import { sendFundraise } from "@/assets/Services/fundraise";
 
 export default function CsrConnectionForm() {
   const [step, setStep] = useState(1);
@@ -101,28 +102,51 @@ export default function CsrConnectionForm() {
 
   const handleBack = () => setStep((prev) => Math.max(prev - 1, 1));
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!validateStep()) return;
 
     const formData = {
       name: nameRef.current?.value,
-      contactPerson: contactRef.current?.value,
+      contact_person: contactRef.current?.value,
       email: emailRef.current?.value,
       phone: phoneRef.current?.value,
       location: locationRef.current?.value,
-      userType,
+      user_type: userType,
       purpose,
-      focusArea,
+      focus_area: focusArea,
       summary: summaryRef.current?.value,
       beneficiaries: beneficiariesRef.current?.value,
       website: websiteRef.current?.value,
       achievements: achievementsRef.current?.value,
-      authorizedName: authorizedRef.current?.value,
+      authorized_name: authorizedRef.current?.value,
       date: dateRef.current?.value,
     };
 
-    console.log(formData);
-    alert("Form submitted successfully!");
+      try {
+    const response = await sendFundraise(formData)
+
+    console.log('Fundraise successfully sent:', response);
+    alert("Fundraise successfully sent!");
+  } catch (error) {
+    console.error('Failed to send fundraise data:', error);
+    alert("Failed to send fundraise data.");
+  }
+
+  // name: 'John Doe',
+  // phone: '9876543210',
+  // email: 'john@example.com',
+  // website: 'https://example.com',
+  // location: 'Hyderabad',
+  // contact_person: 'Jane Smith',
+  // authorized_name: 'Authorized Person',
+  // date: '2025-10-27',
+  // user_type: 'Individual Donor',
+  // purpose: 'Seeking CSR Support / Partnership',
+  // focus_area: ['Animal Welfare', 'Environment & Sustainability'],
+  // summary: 'This is a dummy fundraise record.',
+  // achievements: 'Good achievements',
+  // beneficiaries: 'Local community in Hyderabad',
+
   };
 
   return (
