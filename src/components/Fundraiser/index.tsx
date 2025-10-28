@@ -16,6 +16,8 @@ import {
 import SubmitButton from "@/assets/Buttons/SubmitButton";
 import { sendFundraise } from "@/assets/Services/fundraise";
 
+
+
 export default function CsrConnectionForm() {
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState<Record<string, string>>({});

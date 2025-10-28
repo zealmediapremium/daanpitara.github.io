@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {url} from '../config';
-interface CreateNGOUserParams {
+export interface CreateNGOUserParams {
   name: string;
   phone_no: string;
   email: string;
@@ -9,7 +9,7 @@ interface CreateNGOUserParams {
   ngo_category?: string;
 }
 
-export interface CreateNGOUserResponse {
+interface CreateNGOUserResponse {
   message: string;
   user: {
     id: number;
