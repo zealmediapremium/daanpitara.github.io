@@ -54,10 +54,10 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
           )}
         </div>
 
-        {/* Error Message */}
-        {error && (
-          <p className="text-sm text-red-500 mt-1 font-medium">{error}</p>
-        )}
+        {/* Error Message (space reserved even if no error) */}
+        <p className="text-sm text-red-500 mt-1 font-medium min-h-[1.25rem]">
+          {error || "\u00A0"}
+        </p>
       </div>
     );
   }

@@ -122,33 +122,34 @@ const data: CreateNGOUserParams = {
     console.log("OTP Data:", otpData);
   };
 
-  return (
-    <div className="max-w-md w-full p-6 rounded-lg space-y-6 relative bg-white">
-      {/* Progress bar */}
-      <div>
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="text-lg font-semibold text-gray-800">
-            {stepTitles[step - 1]}
-          </h2>
-          {step > 1 && (
-            <button
-              onClick={handleBack}
-              className="text-gray-600 hover:text-brand-blue transition"
-            >
-              <ArrowLeftIcon size={24} weight="bold" />
-            </button>
-          )}
-        </div>
-        <div className="h-2 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-brand-blue transition-all duration-300"
-            style={{ width: `${(step / 3) * 100}%` }}
-          ></div>
-        </div>
+return (
+  <div className="max-w-md w-full p-6 rounded-lg space-y-6 relative bg-white">
+    {/* Progress bar */}
+    <div>
+      <div className="flex justify-between items-center mb-2">
+        <h2 className="text-lg font-semibold text-gray-800">
+          {stepTitles[step - 1]}
+        </h2>
+        {step > 1 && (
+          <button
+            onClick={handleBack}
+            className="text-gray-600 hover:text-brand-blue transition"
+          >
+            <ArrowLeftIcon size={24} weight="bold" />
+          </button>
+        )}
       </div>
+      <div className="h-2 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-brand-blue transition-all duration-300"
+          style={{ width: `${(step / 3) * 100}%` }}
+        />
+      </div>
+    </div>
 
-      {/* Step 1 */}
-      <div style={{ display: step === 1 ? "block" : "none" }} className="space-y-5 mt-4">
+    {/* Step 1 */}
+    {step === 1 && (
+      <div className="mt-4">
         <InputField
           ref={firstNameRef}
           text="First Name:"
@@ -179,9 +180,11 @@ const data: CreateNGOUserParams = {
         />
         <SubmitButton submit={handleNext} text="Next" />
       </div>
+    )}
 
-      {/* Step 2 */}
-      <div style={{ display: step === 2 ? "block" : "none" }} className="space-y-5 mt-4">
+    {/* Step 2 */}
+    {step === 2 && (
+      <div className="mt-4">
         <InputField
           ref={ngoNameRef}
           text="NGO Name:"
@@ -214,9 +217,11 @@ const data: CreateNGOUserParams = {
         />
         <SubmitButton submit={handleSignup} text="Sign Up" />
       </div>
+    )}
 
-      {/* Step 3 */}
-      <div style={{ display: step === 3 ? "block" : "none" }} className="space-y-5 mt-4">
+    {/* Step 3 */}
+    {step === 3 && (
+      <div className="mt-4">
         <InputField
           ref={emailOtpRef}
           text="Email OTP:"
@@ -231,6 +236,8 @@ const data: CreateNGOUserParams = {
         />
         <SubmitButton submit={handleVerifyOtp} text="Verify OTP" />
       </div>
-    </div>
-  );
+    )}
+  </div>
+);
+
 }
