@@ -12,7 +12,7 @@ import {
 } from "@phosphor-icons/react";
 import SubmitButton from "@/assets/Buttons/SubmitButton";
 import { createNGOUser } from '@/assets/Services/users';
-import { CreateNGOUserParams } from '@/assets/Services/users';
+import type { CreateNGOUserParams } from '@/assets/Services/users';
 
 export default function SignupForm() {
   const [step, setStep] = useState(1);
