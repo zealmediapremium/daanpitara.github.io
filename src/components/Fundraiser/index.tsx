@@ -105,22 +105,23 @@ export default function CsrConnectionForm() {
   const handleSubmit = async () => {
     if (!validateStep()) return;
 
-    const formData = {
-      name: nameRef.current?.value,
-      contact_person: contactRef.current?.value,
-      email: emailRef.current?.value,
-      phone: phoneRef.current?.value,
-      location: locationRef.current?.value,
-      user_type: userType,
-      purpose,
-      focus_area: focusArea,
-      summary: summaryRef.current?.value,
-      beneficiaries: beneficiariesRef.current?.value,
-      website: websiteRef.current?.value,
-      achievements: achievementsRef.current?.value,
-      authorized_name: authorizedRef.current?.value,
-      date: dateRef.current?.value,
-    };
+const formData = {
+  name: nameRef.current?.value || '',
+  contact_person: contactRef.current?.value || '',
+  email: emailRef.current?.value || '',
+  phone: phoneRef.current?.value || '',
+  location: locationRef.current?.value || '',
+  user_type: userType || '',
+  purpose: purpose || '',
+  focus_area: focusArea || '',
+  summary: summaryRef.current?.value || '',
+  beneficiaries: beneficiariesRef.current?.value || '',
+  website: websiteRef.current?.value || '',
+  achievements: achievementsRef.current?.value || '',
+  authorized_name: authorizedRef.current?.value || '',
+  date: dateRef.current?.value || '',
+};
+
 
       try {
     const response = await sendFundraise(formData)

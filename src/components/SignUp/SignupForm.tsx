@@ -12,6 +12,7 @@ import {
 } from "@phosphor-icons/react";
 import SubmitButton from "@/assets/Buttons/SubmitButton";
 import { createNGOUser } from '@/assets/Services/users';
+import { CreateNGOUserParams } from '@/assets/Services/users';
 
 export default function SignupForm() {
   const [step, setStep] = useState(1);
@@ -84,14 +85,15 @@ export default function SignupForm() {
   const handleSignup = async() => {
     if (!validateStep2()) return;
 
-    const data = {
-      name: `${firstNameRef.current?.value} ${lastNameRef.current?.value}`,
-      email: emailRef.current?.value,
-      phone_no: phoneRef.current?.value,
-      ngo_name: ngoNameRef.current?.value,
-      ngo_category: ngoCategoryRef.current?.value,
-      password: passwordRef.current?.value,
-    };
+const data: CreateNGOUserParams = {
+  name: `${firstNameRef.current?.value || ''} ${lastNameRef.current?.value || ''}`,
+  email: emailRef.current?.value || '',
+  phone_no: phoneRef.current?.value || '',
+  ngo_name: ngoNameRef.current?.value || '',
+  ngo_category: ngoCategoryRef.current?.value || undefined, // optional
+  password: passwordRef.current?.value || '',
+};
+
 
       //     name: 'John Doe',
       // phone_no: '1234567890',
@@ -105,7 +107,7 @@ export default function SignupForm() {
       // setSuccess(result.message);
       alert(result.message);
       console.log('✅ Created user:', result.user);
-          setStep((prev) => prev + 1);
+      setStep((prev) => prev + 1);
     } catch (err: any) {
       // setError(err.message);
       alert(err.message);

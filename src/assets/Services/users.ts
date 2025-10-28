@@ -9,7 +9,7 @@ interface CreateNGOUserParams {
   ngo_category?: string;
 }
 
-interface CreateNGOUserResponse {
+export interface CreateNGOUserResponse {
   message: string;
   user: {
     id: number;
