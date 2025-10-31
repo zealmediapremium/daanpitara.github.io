@@ -1,4 +1,6 @@
 import { PhoneIcon, MapPinIcon } from "@phosphor-icons/react";
+// import Image from "next/image"; 
+import DaanPitara from "@/assets/Home/DaanPitara.png";
 
 const Footer: React.FC = () => {
   return (
@@ -7,11 +9,23 @@ const Footer: React.FC = () => {
         {/* Top Section: Brand + Get in Touch */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-10 gap-8">
           {/* Brand */}
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-2">DAANPitara</h2>
-            <p className="text-sm">
-              © DAANPitara 2025
+          <div className="flex-1">
+            <div className="flex items-center mb-2">
+              {/* Replace src with your logo path */}
+              {/* <img src={DaanPitara} alt="DAANPitara Logo" width={80} height={80} /> */}
+              <div className="h-20 w-20 overflow-hidden inline-block">
+  <img
+    src={DaanPitara}
+    alt="DaanPitara Logo"
+    className="object-cover scale-125"
+  />
+</div>
+              <h2 className="text-2xl font-bold text-white">DaanPitara</h2>
+            </div>
+            <p className="text-sm mb-4">
+              Operating across India, the USA, UAE, Canada, and Germany, DAANPitara connects global NGOs with fundraiser matchmaking through top NGO digital support services, branding, CSR collaborations, and transparent donor engagement. Together, we’re redefining trust and technology for a better tomorrow.
             </p>
+
           </div>
 
           {/* Get in Touch */}

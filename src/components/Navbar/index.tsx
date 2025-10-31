@@ -4,7 +4,7 @@ import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import HighlightButton from "@/assets/buttons/HighlightButton";
-import Logo from "@/assets/daanpitara.jpg";
+import Logo from "@/assets/Home/DaanPitara.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,13 @@ export default function Navbar() {
       {/* Left: Logo */}
       <div className="text-xl font-bold flex items-center">
         <Link to="/" className="flex items-center">
-          <img src={Logo} alt="DaanPitara Logo" className="h-10 inline-block mr-3" />
+<div className="h-15 w-15 overflow-hidden inline-block ">
+  <img
+    src={Logo}
+    alt="DaanPitara Logo"
+    className="h-full w-full object-cover scale-125"
+  />
+</div>
           <span>Daan</span>
           <span className="text-brand-blue ">Pitara</span>
         </Link>
