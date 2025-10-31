@@ -6,21 +6,38 @@ import FeaturesSection from "./WhyUs";
 import { featuresData } from "./WhyUs";
 import { facilitiesData } from "./facilitiesData";
 import { servicesData } from "./servicesData";
-import SectionHeading from "@/assets/Headings/sectionHeading";
-
+import SectionHeading from "@/assets/Headings/SectionHeading";
+import SubHeading from "@/assets/Headings/subsectionHeading";
 const tabs = [
-  { id: "features", label: "Healthcare Features", data: featuresData },
-  { id: "facilities", label: "Facilities & Equipment", data: facilitiesData },
-  { id: "services", label: "Services & Specialisations", data: servicesData },
+  { 
+    id: "features", 
+    label: "Empowering NGOs", 
+    desc: "We walk alongside every NGO, turning purpose into measurable progress.", 
+    data: featuresData 
+  },
+  { 
+    id: "facilities", 
+    label: "Digital & Funding Support", 
+    desc: "Bridge the gap between purpose and technology to amplify your mission.", 
+    data: facilitiesData 
+  },
+  { 
+    id: "services", 
+    label: "Trust & Transparency", 
+    desc: "Why NGOs and donors believe in our vision and platform.", 
+    data: servicesData 
+  },
 ];
+
+
 
 export default function FeaturesTabs() {
   const [activeTab, setActiveTab] = useState("features");
 
   return (
-    <div className="w-full py-10">
+    <div className="w-full py-10 text-gray-600">
       <SectionHeading heading="Why People Trust Us" />
-
+      <SubHeading heading="Discover the reasons why our patients choose us for their healthcare needs." />
       {/* Tabs */}
       <div className="relative mb-10">
         {/* Mobile: horizontal scroll | Desktop: centered row */}
@@ -33,7 +50,7 @@ export default function FeaturesTabs() {
             overflow-y-hidden
             scrollbar-hide
             border-b border-gray-200
-            pb-2
+            pb-2 mt-8
           "
         >
           {tabs.map((tab) => (
@@ -81,7 +98,7 @@ export default function FeaturesTabs() {
                   <FeaturesSection
                     features={tab.data}
                     title={tab.label}
-                    subtitle={`Explore more about our ${tab.label.toLowerCase()}.`}
+                    subtitle={`${tab.desc.toLowerCase()}.`}
                   />
                 </motion.div>
               )

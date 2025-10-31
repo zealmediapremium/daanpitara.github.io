@@ -1,4 +1,3 @@
-import React from "react";
 import { PhoneIcon, MapPinIcon } from "@phosphor-icons/react";
 
 const Footer: React.FC = () => {
