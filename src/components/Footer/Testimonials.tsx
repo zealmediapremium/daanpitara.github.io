@@ -1,4 +1,4 @@
-import SectionHeading from "@/assets/headings/SectionHeading";
+import SectionHeading from "@/assets/HeadingText/SectionHeading";
 import { motion } from "framer-motion";
 import { UserCircleIcon } from "@phosphor-icons/react";
 

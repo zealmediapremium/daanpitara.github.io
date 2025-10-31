@@ -1,6 +1,6 @@
 import { PhoneIcon, MapPinIcon } from "@phosphor-icons/react";
 // import Image from "next/image"; 
-import DaanPitara from "@/assets/Home/DaanPitara.png";
+import DaanPitara from "@/assets/Images/DaanPitara.png";
 
 const Footer: React.FC = () => {
   return (

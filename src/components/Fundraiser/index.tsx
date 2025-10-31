@@ -13,7 +13,7 @@ import {
   ArrowRightIcon,
   CalendarIcon
 } from "@phosphor-icons/react";
-import SubmitButton from "@/assets/buttons/SubmitButton";
+import SubmitButton from "@/assets/ButtonDesigns/SubmitButton";
 import { sendFundraise } from "@/assets/Services/fundraise";
 
 

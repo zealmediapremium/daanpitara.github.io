@@ -1,6 +1,6 @@
-import ImageCard from "@/assets/theme/ImageCard";
-import Globe from "@/assets/Home/globe.jpg";
-import HighlightButton from "@/assets/buttons/HighlightButton";
+import ImageCard from "@/assets/ImageDisplay/ImageCard";
+import Globe from "@/assets/Images/globe.jpg";
+import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
 
 export default function Landing() {
   return (

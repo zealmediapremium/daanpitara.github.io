@@ -1,8 +1,8 @@
-import Tag from "@/assets/headings/Tag";
-import SectionHeading from "@/assets/headings/SectionHeading";
-import HighlightButton from "@/assets/buttons/HighlightButton";
-import ImageCard from "@/assets/theme/ImageCard";
-import Globe from "@/assets/Home/globe.jpg";
+import Tag from "@/assets/HeadingText/Tag";
+import SectionHeading from "@/assets/HeadingText/SectionHeading";
+import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
+import ImageCard from "@/assets/ImageDisplay/ImageCard";
+import Globe from "@/assets/Images/globe.jpg";
 
 
 export default function About() {

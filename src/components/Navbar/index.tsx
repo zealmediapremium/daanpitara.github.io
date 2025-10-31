@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { ListIcon, XIcon } from "@phosphor-icons/react"; 
 import { motion, AnimatePresence } from "framer-motion";
 
-import HighlightButton from "@/assets/buttons/HighlightButton";
-import Logo from "@/assets/Home/DaanPitara.png";
+import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
+import Logo from "@/assets/Images/DaanPitara.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
