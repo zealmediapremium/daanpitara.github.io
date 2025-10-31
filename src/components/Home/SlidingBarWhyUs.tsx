@@ -37,7 +37,7 @@ export default function FeaturesTabs() {
   return (
     <div className="w-full py-10 text-gray-600">
       <SectionHeading heading="Why People Trust Us" />
-      <SubHeading heading="Discover the reasons why our patients choose us for their healthcare needs." />
+      <SubHeading heading="Delivering success through strategy, innovation, and measurable impact across every digital platform." />
       {/* Tabs */}
       <div className="relative mb-10">
         {/* Mobile: horizontal scroll | Desktop: centered row */}
@@ -98,7 +98,7 @@ export default function FeaturesTabs() {
                   <FeaturesSection
                     features={tab.data}
                     title={tab.label}
-                    subtitle={`${tab.desc.toLowerCase()}.`}
+                    subtitle={`${tab.desc}.`}
                   />
                 </motion.div>
               )
