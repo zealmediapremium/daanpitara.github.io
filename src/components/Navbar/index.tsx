@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ListIcon, XIcon } from "@phosphor-icons/react"; 
 import { motion, AnimatePresence } from "framer-motion";
 
-import HighlightButton from "@/assets/Buttons/HighlightButton";
+import HighlightButton from "@/assets/buttons/HighlightButton";
 import Logo from "@/assets/daanpitara.jpg";
 
 export default function Navbar() {

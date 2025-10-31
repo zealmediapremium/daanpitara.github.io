@@ -1,6 +1,6 @@
-import Tag from "@/assets/Headings/Tag";
-import SectionHeading from "@/assets/Headings/SectionHeading";
-import HighlightButton from "@/assets/Buttons/HighlightButton";
+import Tag from "@/assets/headings/Tag";
+import SectionHeading from "@/assets/headings/SectionHeading";
+import HighlightButton from "@/assets/buttons/HighlightButton";
 import ImageCard from "@/assets/theme/ImageCard";
 import Globe from "@/assets/Home/globe.jpg";
 

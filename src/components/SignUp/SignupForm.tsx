@@ -10,7 +10,7 @@ import {
   KeyIcon,
   ArrowLeftIcon,
 } from "@phosphor-icons/react";
-import SubmitButton from "@/assets/Buttons/SubmitButton";
+import SubmitButton from "@/assets/buttons/SubmitButton";
 import { createNGOUser } from '@/assets/Services/users';
 import type { CreateNGOUserParams } from '@/assets/Services/users';
 

@@ -1,6 +1,6 @@
-import SectionHeading from "@/assets/Headings/SectionHeading";
+import SectionHeading from "@/assets/headings/SectionHeading";
 import FaqSingleQuestion from "@/assets/theme/FaqSingleQuestion";
-import SubsectionHeading from "@/assets/Headings/SubsectionHeading";
+import SubsectionHeading from "@/assets/headings/subsectionHeading";
 
 export default function Faqs() {
 

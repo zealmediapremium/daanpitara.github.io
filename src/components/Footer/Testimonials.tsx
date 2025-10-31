@@ -1,4 +1,4 @@
-import SectionHeading from "@/assets/Headings/SectionHeading";
+import SectionHeading from "@/assets/headings/SectionHeading";
 import { motion } from "framer-motion";
 import { UserCircleIcon } from "@phosphor-icons/react";
 
@@ -41,8 +41,6 @@ const testimonials: Testimonial[] = [
 ];
 
 
-// Helper function to generate random star ratings
-const randomStars = () => Math.floor(Math.random() * 3) + 3;
 
 const Testimonials: React.FC = () => {
   return (
@@ -53,7 +51,7 @@ const Testimonials: React.FC = () => {
 
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 py-10">
           {testimonials.map((t, i) => {
-            const stars = randomStars();
+
             return (
               <motion.div
                 key={i}

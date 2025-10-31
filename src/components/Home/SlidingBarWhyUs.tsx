@@ -6,8 +6,8 @@ import FeaturesSection from "./WhyUs";
 import { featuresData } from "./WhyUs";
 import { facilitiesData } from "./facilitiesData";
 import { servicesData } from "./servicesData";
-import SectionHeading from "@/assets/Headings/SectionHeading";
-import SubHeading from "@/assets/Headings/subsectionHeading";
+import SectionHeading from "@/assets/headings/SectionHeading";
+import SubHeading from "@/assets/headings/subsectionHeading";
 const tabs = [
   { 
     id: "features", 
