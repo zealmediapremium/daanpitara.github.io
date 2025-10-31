@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 interface AnimatedNavLinkProps {
-  to: string;
+  to?: string;
   text: string;
 }
 
@@ -12,7 +12,7 @@ export default function AnimatedNavLink({ to, text }: AnimatedNavLinkProps) {
 
   return (
     <Link
-      to={to}
+      to={to || "#"}
       className="relative inline-flex items-center justify-center overflow-hidden h-10 px-4 font-medium text-bg-white bg-brand-blue rounded-full group"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
