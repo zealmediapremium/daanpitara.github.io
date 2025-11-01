@@ -1,10 +1,6 @@
-import SectionHeading from "@/assets/Headings/sectionHeading";
-
-
-
-import React from "react";
+import SectionHeading from "@/assets/HeadingText/SectionHeading";
 import { motion } from "framer-motion";
-import { UserCircle } from "@phosphor-icons/react";
+import { UserCircleIcon } from "@phosphor-icons/react";
 
 type Testimonial = {
   name: string;
@@ -13,39 +9,38 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Emily Johnson",
+    name: "Gyaan All Children Welfare Society",
     review:
-      "Their service was outstanding. They ensured I was comfortable and informed every step of the way.",
+      "DaanPitara helped us go from being a small local NGO to a visible online movement. Their digital campaigns not only brought in donors but also helped more people understand our mission.",
   },
   {
-    name: "Michael Roberts",
+    name: "Don Bosco Navjeevan",
     review:
-      "The support I received was excellent. They truly cared about my needs and exceeded my expectations.",
+      "Before DaanPitara, fundraising felt like a constant struggle. Now, with their guidance and visibility tools, we’ve reached supporters we never thought possible.",
   },
   {
-    name: "Sophia Martinez",
+    name: "Mata Gujri Ji Bridh Ashram",
     review:
-      "I felt valued and cared for. Their team made every effort to provide exceptional support and service.",
+      "Our digital presence was almost invisible. DaanPitara has turned our story into something beautiful, and people connect with our purpose like never before.",
   },
   {
-    name: "Olivia Harris",
+    name: "Vasundhara Maitri Foundation",
     review:
-      "They were attentive and thorough. Their professionalism and kindness made the entire process seamless.",
+      "The team guided us through every compliance and documentation process. Their legal and digital supports built trust with donors and made fundraising transparent.",
   },
   {
-    name: "James Anderson",
+    name: "JJ Education Academy",
     review:
-      "My experience was remarkable. They delivered exactly what they promised with care and dedication.",
+      "From branding to social media storytelling, they brought our NGO’s journey to life. Every campaign feels personal, powerful, and full of heart.",
   },
   {
-    name: "Daniel Thompson",
+    name: "Community Action for Rural Excellence",
     review:
-      "Their team was exceptional. They listened to my concerns and made sure all my needs were addressed.",
+      "We found not just a digital partner, but a compassionate team that believed in our cause. DaanPitara helped us amplify once-unheard voices.",
   },
 ];
 
-// Helper function to generate random star ratings
-const randomStars = () => Math.floor(Math.random() * 3) + 3;
+
 
 const Testimonials: React.FC = () => {
   return (
@@ -56,7 +51,7 @@ const Testimonials: React.FC = () => {
 
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 py-10">
           {testimonials.map((t, i) => {
-            const stars = randomStars();
+
             return (
               <motion.div
                 key={i}
@@ -67,7 +62,7 @@ const Testimonials: React.FC = () => {
               >
                 {/* Name and Icon */}
                 <div className="flex items-center mb-4">
-                  <UserCircle size={32} weight="fill" className="text-indigo-500 mr-2" />
+                  <UserCircleIcon size={32} weight="fill" className="text-indigo-500 mr-2" />
                   <h3 className="text-lg font-semibold text-gray-800">{t.name}</h3>
                 </div>
 
@@ -75,7 +70,7 @@ const Testimonials: React.FC = () => {
                 <p className="text-gray-600 mb-4">{t.review}</p>
 
                 {/* Random Star Rating */}
-                <div className="flex">
+                {/* <div className="flex">
                   {Array.from({ length: stars }).map((_, idx) => (
                     <svg
                       key={idx}
@@ -87,7 +82,7 @@ const Testimonials: React.FC = () => {
                       <path d="M12 .587l3.668 7.425L24 9.748l-6 5.848 1.417 8.268L12 19.771l-7.417 4.093L6 15.596 0 9.748l8.332-1.736z" />
                     </svg>
                   ))}
-                </div>
+                </div> */}
               </motion.div>
             );
           })}

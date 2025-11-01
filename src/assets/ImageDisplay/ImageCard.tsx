@@ -36,8 +36,8 @@ const SmartImage: React.FC<SmartImageProps> = ({
       transition={{ duration: 0.4, ease: "easeOut" }}
       className={`object-cover rounded-xl transition-transform duration-300 hover:scale-[1.04] ${className}`}
       style={{
-        width: width ?? "auto",
-        height: height ?? "auto",
+        minWidth: width ?? "auto",
+        maxHeight: height ?? "auto",
       }}
     />
   );

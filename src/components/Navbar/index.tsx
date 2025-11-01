@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { ListIcon, XIcon } from "@phosphor-icons/react"; 
 import { motion, AnimatePresence } from "framer-motion";
 
-import HighlightButton from "@/assets/Buttons/highlightButton";
-import Logo from "@/assets/daanpitara.jpg";
+import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
+import Logo from "@/assets/Images/DaanPitara.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,13 @@ export default function Navbar() {
       {/* Left: Logo */}
       <div className="text-xl font-bold flex items-center">
         <Link to="/" className="flex items-center">
-          <img src={Logo} alt="DaanPitara Logo" className="h-10 inline-block mr-3" />
+<div className="h-15 w-15 overflow-hidden inline-block ">
+  <img
+    src={Logo}
+    alt="DaanPitara Logo"
+    className="h-full w-full object-cover scale-125"
+  />
+</div>
           <span>Daan</span>
           <span className="text-brand-blue ">Pitara</span>
         </Link>
@@ -32,6 +38,7 @@ export default function Navbar() {
         <Link to="/fund-form" className="hover:text-brand-blue transition-colors duration-200">Fundraiser Form</Link>
         <Link to="/faqs" className="hover:text-brand-blue transition-colors duration-200">FAQ's</Link>
         <Link to="/blogs" className="hover:text-brand-blue transition-colors duration-200">Blogs</Link>
+        {/* <Link to="/about" className="hover:text-brand-blue transition-colors duration-200">About us</Link> */}
       </div>
 
       {/* Desktop Sign Up */}
@@ -61,6 +68,7 @@ export default function Navbar() {
             <Link to="/fund-form" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Fundraiser Form</Link>
             <Link to="/faqs" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>FAQ's</Link>
             <Link to="/blogs" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Blogs</Link>
+            {/* <Link to="/about" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>About us</Link> */}
             <div onClick={() => setIsOpen(false)}>
               <HighlightButton to="/signup" text="Sign Up" />
             </div>

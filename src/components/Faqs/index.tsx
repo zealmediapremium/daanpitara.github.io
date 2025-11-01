@@ -1,70 +1,72 @@
-import SectionHeading from "@/assets/Headings/sectionHeading";
+import SectionHeading from "@/assets/HeadingText/SectionHeading";
 import FaqSingleQuestion from "@/assets/theme/FaqSingleQuestion";
-import SubsectionHeading from "@/assets/Headings/subsectionHeading";
+import SubsectionHeading from "@/assets/HeadingText/SubsectionHeading";
 
 export default function Faqs() {
 
   const basic_faqs =[
   {
-    question: "What is DaanPitara?",
-    answer: "DaanPitara is India’s first full-stack digital platform helping NGOs grow through digital fundraising, CSR visibility, Google Ad Grants, and complete digital onboarding."
+    "question": "How does DaanPitara support NGOs?",
+    "answer": "DaanPitara acts as a digital growth partner for NGOs, helping them raise funds online, connect with CSR opportunities, and get discovered through digital campaigns and Google Ad Grants. We make it easier for NGOs to grow and gain visibility."
   },
   {
-    question: "What is Mission Mosaic?",
-    answer: "It’s a nationwide movement to digitally list 1000 NGOs across India by Independence Day, enabling them to be displayed on a live interactive India map mosaic."
+    "question": "What makes Mission Mosaic special?",
+    "answer": "Mission Mosaic is our initiative that brings together changemakers from every corner of India. It’s a space where different missions unite, ensuring NGOs, donors, and volunteers work hand-in-hand for shared impact."
   },
   {
-    question: "What does “free listing” mean?",
-    answer: "Free listing means your NGO will be digitally mapped and visible on our national NGO mosaic without any initial charges."
+    "question": "What do you mean by “signing up for free”?",
+    "answer": "When we say sign up for free, it means your NGO can create a verified listing on our Digital NGOs platform without paying anything. It’s our way of ensuring that every organization big or small has an equal chance to be seen and supported."
   },
   {
-    question: "Who can get listed?",
-    answer: "Any legally registered NGO, Trust, or Society from India with valid documentation and willingness to grow digitally."
+    "question": "Who can be part of DaanPitara?",
+    "answer": "Any registered NGO, foundation, or social impact group working towards a cause is welcome to join. Whether you focus on education, environment, health, or women empowerment, we help your mission reach further."
   },
   {
-    question: "What do I get after listing?",
-    answer: "A live NGO profile page, eligibility for Google Ad Grants (₹80,000/month), CSR matchmaking access, and a digital fundraising roadmap."
+    "question": "What benefits will my NGO get after joining?",
+    "answer": "Once you’re onboard, you’ll receive a verified NGO profile, improved online visibility, potential donor outreach, and access to CSR and digital funding tools, all designed to help your organization grow sustainably."
   },
   {
-    question: "Is there a time limit for free listing?",
-    answer: "Yes, the free listing is open under the “Digital Independence Campaign” till 15th August 2025."
+    "question": "Does the free access expire?",
+    "answer": "No, your free access stays active. We don’t believe in limiting impact. You can continue showcasing your NGO as long as you wish and choose to upgrade later only if you want to explore more advanced digital tools."
   }
-];
+]
+
 
 const paymentFAQ = [
   {
-    question: "Is there any fee to join DaanPitara?",
-    answer: "Yes, a one-time official onboarding fee of ₹2,100/- is applicable. This covers your NGO’s registration, verification, and listing on the platform. Post onboarding, you’ll gain access to our full suite of services."
+    "question": "Does joining DaanPitara require any initial cost?",
+    "answer": "To become part of DaanPitara, a small one-time setup charge of ₹2,100 is required. This covers your NGO’s verification, onboarding, and digital listing on the platform so you can access all our tools and features seamlessly."
   },
   {
-    question: "What happens after onboarding?",
-    answer: "After successful onboarding, NGOs can choose from various available services, packages, or combos as per their needs. These services will be activated as per mutual discussion and will reflect in the monthly billing."
+    "question": "What’s included once my NGO is successfully registered?",
+    "answer": "Once registered, you’ll gain access to your dedicated NGO dashboard, digital tools for fundraising and visibility, and personalized guidance from our expert team to help your cause reach more people."
   },
   {
-    question: "Are service charges fixed or negotiable?",
-    answer: "There is no fixed price list displayed publicly. All pricing for services, packages, or combos is discussed and mutually decided post onboarding — based on your NGO’s goals, budget, and campaign requirements."
+    "question": "Are the pricing plans flexible for different NGOs?",
+    "answer": "Yes, absolutely. We understand that every NGO operates differently, so our plans are customized to fit your size, needs, and goals. You can always discuss customized options with our support team."
   },
   {
-    question: "When do clients have to pay?",
-    answer: "Payment is due monthly based on the services selected. Once a service is chosen and activated, it will reflect in the monthly bill. Clients are required to pay invoices promptly, regardless of campaign results, as results depend on external market factors and are not linked to billing terms."
+    "question": "When should payments be made for services?",
+    "answer": "Payments are generally required before your selected service begins. For larger projects or ongoing partnerships, we also offer scheduled or milestone-based payment options for your convenience."
   },
   {
-    question: "Are results guaranteed with services?",
-    answer: "While our team offers best-in-class digital support, all fundraising and marketing results depend on various market and donor behavior factors. Therefore, results cannot be used as a condition for payment or refund."
+    "question": "Can you ensure definite results for each service?",
+    "answer": "Our focus is on impact and progress, not promises. While we can’t guarantee fixed results, our team ensures consistent effort, transparent reporting, and meaningful outcomes for your NGO’s growth."
   },
   {
-    question: "Can I cancel a service mid-month?",
-    answer: "You may request cancellation or pause of any service before the next billing cycle. However, services already activated in a billing cycle will be billed fully and must be paid accordingly."
+    "question": "Is it possible to stop services midway if needed?",
+    "answer": "Yes, you can pause or cancel your plan anytime with prior notice. We’ll make sure the process is smooth and guide you through any formalities that may apply."
   },
   {
-    question: "Are payments refundable?",
-    answer: "No refunds are applicable once onboarding is completed and services are activated. In exceptional cases (such as system errors or double payments), refunds may be reviewed on a case-by-case basis."
+    "question": "Do you offer refunds once payment is made?",
+    "answer": "Since most of our work begins immediately after payment, refunds aren’t generally applicable. However, if there’s a genuine concern or technical issue, our team will review your case personally to find a fair solution."
   },
   {
-    question: "How can payments be made?",
-    answer: "Payments can be made via UPI, bank transfer, or secure payment gateway links shared by our team."
+    "question": "What payment methods are accepted by us?",
+    "answer": "You can pay easily through UPI, net banking, credit/debit cards, or secure payment gateways. Once your payment is completed, an instant acknowledgment and invoice will be shared with you."
   }
-];
+]
+
 
 
 

@@ -4,10 +4,12 @@ import type { JSX } from "react";
 // src/data/featuresData.tsx
 
 import {
-  CalendarCheckIcon,
-  ClipboardTextIcon,
-  ClockIcon,
-  StethoscopeIcon,
+
+    HandshakeIcon,
+  IdentificationBadgeIcon,
+  FileTextIcon,
+  GlobeHemisphereEastIcon,
+  ChatsCircleIcon,
   // FileMedicalIcon,
   UsersThreeIcon,
 } from "@phosphor-icons/react";
@@ -20,42 +22,43 @@ export interface FeatureItem {
 
 export const featuresData: FeatureItem[] = [
   {
-    icon: <CalendarCheckIcon size={40} weight="fill" className="text-blue-600" />,
-    heading: "Easy appointment",
+    icon: <HandshakeIcon size={40} weight="fill" className="text-blue-600" />,
+    heading: "Seamless Onboarding",
     description:
-      "Schedule your appointments quickly with our simple and efficient booking system.",
+      "Start your journey with confidence. We make it easy for NGOs to get online, be seen, and start creating impact faster.",
   },
   {
-    icon: <ClipboardTextIcon size={40} weight="fill" className="text-green-600" />,
-    heading: "Personalized plans",
+    icon: <IdentificationBadgeIcon size={40} weight="fill" className="text-green-600" />,
+    heading: "Verified NGO Profiles",
     description:
-      "Receive tailored care plans designed to meet your unique health needs and goals.",
+      "Show the world who you are. Verified listings build trust and help donors connect with your story and mission.",
   },
   {
-    icon: <ClockIcon size={40} weight="fill" className="text-purple-600" />,
-    heading: "24/7 consultations",
+    icon: <UsersThreeIcon size={40} weight="fill" className="text-purple-600" />,
+    heading: "CSR Matchmaking",
     description:
-      "Access expert medical advice anytime through secure and reliable virtual visits.",
+      "Find partners who care as much as you do. We connect you with purpose-driven brands through the best CSR partnership platform in India.",
   },
   {
-    icon: <StethoscopeIcon size={40} weight="fill" className="text-pink-600" />,
-    heading: "Medical technology",
+    icon: <FileTextIcon size={40} weight="fill" className="text-pink-600" />,
+    heading: "Compliance & DPR Guidance",
     description:
-      "Experience modern healthcare with innovative tools and state-of-the-art equipment.",
+      "We take the stress out of documentation so you can focus on what matters most — your cause and your community.",
   },
   {
-    icon: <StethoscopeIcon size={40} weight="fill" className="text-yellow-600" />,
-    heading: "Patient records",
+    icon: <GlobeHemisphereEastIcon size={40} weight="fill" className="text-yellow-600" />,
+    heading: "Mission Growth Network",
     description:
-      "Stay organized with secure, easy access to your medical records whenever needed.",
+      "Join a growing ecosystem of 1000+ NGOs working together to share learning, resources, and collective impact.",
   },
   {
-    icon: <UsersThreeIcon size={40} weight="fill" className="text-teal-600" />,
-    heading: "Care network",
+    icon: <ChatsCircleIcon size={40} weight="fill" className="text-teal-600" />,
+    heading: "Personalized NGO Mentorship",
     description:
-      "Connect with top specialists and facilities to ensure complete healthcare coverage.",
+      "Get one-on-one guidance from experts who truly understand your challenges. Together, we build confidence, clarity, and a sustainable path forward.",
   },
 ];
+
 
 
 

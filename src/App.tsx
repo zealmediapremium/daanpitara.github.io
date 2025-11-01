@@ -13,6 +13,7 @@ import Faqs from "./components/Faqs";
 import Blogs from "./components/Blogs";
 import SignUp from "./components/SignUp";
 import Testimonials from "./components/Footer/Testimonials";
+import About from "./components/About";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           {/* <Route path="/contact" element={<Navbar />} /> */}
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<p>Not found</p>} />
         </Route>
       </Routes>
